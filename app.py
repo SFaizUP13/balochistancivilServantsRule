@@ -47,7 +47,8 @@ if process_button:
         with st.spinner("Processing documents... LlamaIndex is handling the chunking and embedding automatically."):
             try:
                 # 1. Configure global LlamaIndex settings
-                Settings.llm = Groq(model="llama-3.1-8b-instant", api_key=groq_api_key, temperature=0.2)
+                # 1. Configure global LlamaIndex settings
+                Settings.llm = Groq(model="openai/gpt-oss-20b", api_key=groq_api_key, temperature=0.2)
                 Settings.embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
                 
                 # 2. Save uploaded files to a temporary directory for SimpleDirectoryReader to parse
